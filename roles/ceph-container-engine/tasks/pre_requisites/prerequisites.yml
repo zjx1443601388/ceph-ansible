@@ -23,9 +23,9 @@
   tags:
     with_pkg
 
-- name: install container packages
+- name: install container and lvm2 packages
   package:
-    name: ['{{ container_package_name }}', '{{ container_binding_name }}']
+    name: ['{{ container_package_name }}', '{{ container_binding_name }}', 'lvm2']
     update_cache: true
   register: result
   until: result is succeeded
