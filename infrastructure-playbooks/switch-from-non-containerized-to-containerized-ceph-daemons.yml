@@ -542,3 +542,38 @@
 
     - import_role:
         name: ceph-nfs
+
+- name: switching from non-containerized to containerized ceph-crash
+
+  hosts:
+    - "{{ mon_group_name | default('mons') }}"
+    - "{{ osd_group_name | default('osds') }}"
+    - "{{ mds_group_name | default('mdss') }}"
+    - "{{ rgw_group_name | default('rgws') }}"
+    - "{{ rbdmirror_group_name | default('rbdmirrors') }}"
+    - "{{ mgr_group_name | default('mgrs') }}"
+
+  vars:
+    containerized_deployment: true
+  serial: 1
+  become: true
+  pre_tasks:
+
+    - name: stop non-containerized ceph nfs(s)
+      service:
+        name: ceph-crash
+        state: stopped
+        enabled: no
+
+    - import_role:
+        name: ceph-defaults
+
+    - import_role:
+        name: ceph-facts
+
+  tasks:
+    - import_role:
+        name: ceph-handler
+
+    - import_role:
+        name: ceph-crash
