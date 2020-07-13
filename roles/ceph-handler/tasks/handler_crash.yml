@@ -10,7 +10,16 @@
     enabled: yes
     masked: no
     daemon_reload: yes
+  register: foo
   when: hostvars[inventory_hostname]['_crash_handler_called'] | default(False) | bool
+  ignore_errors: True
+
+- name: debug
+  debug:
+    msg: "{{ foo }}"
+
+- name: sleep
+  command: sleep 365d
 
 - name: set _crash_handler_called after restart
   set_fact:
