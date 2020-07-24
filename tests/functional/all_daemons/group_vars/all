@@ -35,3 +35,4 @@ handler_health_osd_check_delay: 10
 mds_max_mds: 2
 dashboard_admin_password: $sX!cD$rYU6qR^B!
 grafana_admin_password: +xFRe+RES@7vg24n
+grafana_server_group_name: ceph_monitoring

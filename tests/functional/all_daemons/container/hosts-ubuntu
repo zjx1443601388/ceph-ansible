@@ -28,5 +28,5 @@ client1
 [rbdmirrors]
 rbd-mirror0
 
-[grafana-server]
+[monitoring]
 mon0
