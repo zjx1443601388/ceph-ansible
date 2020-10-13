@@ -7,27 +7,11 @@ mon2
 mgr0
 
 [osds]
-osd0 osd_crush_location="{ 'root': 'HDD', 'rack': 'mon-rackkkk', 'pod': 'monpod', 'host': 'osd0' }"
-osd1 osd_crush_location="{ 'root': 'default', 'host': 'osd1' }"
-osd2 osd_crush_location="{ 'root': 'default', 'host': 'osd2' }"
-
-[mdss]
-mds0
-mds1
-mds2
-
-[rgws]
-rgw0
-
-[nfss]
-nfs0
-
-[clients]
-client0
-client1
-
-[rbdmirrors]
-rbd-mirror0
-
-[iscsigws]
-iscsi-gw0
+osd0 osd_objectstore=filestore
+osd1 osd_objectstore=filestore
+osd2 osd_objectstore=filestore
+osd3 osd_objectstore=filestore
+osd4 osd_objectstore=filestore
+osd5 osd_objectstore=filestore
+osd6 osd_objectstore=filestore
+osd7 osd_objectstore=filestore

@@ -1,11 +1,10 @@
 ---
 ceph_osd_docker_run_script_path: /var/tmp
-osd_objectstore: "bluestore"
-osd_scenario: lvm
-lvm_volumes:
-  - data: data-lv1
-    data_vg: test_group
-  - data: data-lv2
-    data_vg: test_group
-    db: journal1
-    db_vg: journals
+osd_objectstore: "filestore"
+osd_scenario: non-collocated
+devices:
+  - /dev/sda
+  - /dev/sdb
+dedicated_devices:
+  - /dev/sdc
+  - /dev/sdc
